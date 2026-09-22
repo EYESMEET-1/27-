@@ -31,6 +31,8 @@
 
 直接打开 `game/index.html`，或在 `game` 目录启动本地静态服务器。
 
+在线试玩：[https://eyesmeet-1.github.io/27-/](https://eyesmeet-1.github.io/27-/)
+
 ## 设计文件
 
 - `00_项目说明.md`
