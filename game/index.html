@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>过载前线</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <h1>过载前线</h1>
+        <p>2D 动作战斗原型</p>
+      </div>
+      <div class="run-state">
+        <span>波次 <strong id="waveValue">1 / 5</strong></span>
+        <span>分数 <strong id="scoreValue">0</strong></span>
+      </div>
+    </header>
+
+    <main class="game-layout">
+      <section class="stage-wrap">
+        <canvas id="gameCanvas" width="960" height="600" aria-label="2D 战斗区域"></canvas>
+        <div id="overlay" class="overlay">
+          <div class="overlay-panel">
+            <p id="overlayEyebrow" class="eyebrow">系统测试</p>
+            <h2 id="overlayTitle">准备进入战斗</h2>
+            <p id="overlayText">用移动、射击和冲刺控制热量，撑过五轮敌群。</p>
+            <div id="upgradeChoices" class="upgrade-choices"></div>
+            <button id="primaryAction" class="primary-action" type="button">开始战斗</button>
+          </div>
+        </div>
+        <div id="heatWarning" class="heat-warning">热量即将达到危险值</div>
+      </section>
+
+      <aside class="side-panel">
+        <section class="panel-block">
+          <span class="panel-label">生命</span>
+          <div class="meter"><div id="healthFill" class="meter-fill health-fill"></div></div>
+          <strong id="healthValue" class="panel-value">100 / 100</strong>
+        </section>
+
+        <section class="panel-block heat-block">
+          <span class="panel-label">热量</span>
+          <div class="meter"><div id="heatFill" class="meter-fill heat-fill"></div></div>
+          <strong id="heatValue" class="panel-value">0 / 100</strong>
+          <span id="heatState" class="state-label">冷区</span>
+        </section>
+
+        <section class="stats-grid">
+          <div><span>敌人</span><strong id="enemyValue">0</strong></div>
+          <div><span>冲刺</span><strong id="dashValue">就绪</strong></div>
+          <div><span>脉冲</span><strong id="pulseValue">就绪</strong></div>
+          <div><span>击杀</span><strong id="killValue">0</strong></div>
+          <div><span>过热</span><strong id="overheatValue">0</strong></div>
+          <div><span>构筑</span><strong id="buildValue">0</strong></div>
+        </section>
+
+        <section class="panel-block controls-block">
+          <span class="panel-label">操作</span>
+          <div class="controls-list">
+            <span><kbd>WASD</kbd> 移动</span>
+            <span><kbd>鼠标</kbd> 瞄准</span>
+            <span><kbd>左键</kbd> 射击</span>
+            <span><kbd>右键</kbd> 范围脉冲</span>
+            <span><kbd>空格</kbd> 冲刺降温</span>
+            <span><kbd>P</kbd> 暂停</span>
+            <span><kbd>R</kbd> 重开</span>
+          </div>
+        </section>
+
+        <section class="panel-block build-block">
+          <span class="panel-label">当前构筑</span>
+          <div id="buildList" class="build-list">
+            <span>尚未选择升级</span>
+          </div>
+        </section>
+
+        <button id="pauseButton" class="secondary-action" type="button">暂停</button>
+      </aside>
+    </main>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>
